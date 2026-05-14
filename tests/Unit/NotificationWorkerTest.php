@@ -20,14 +20,14 @@ class NotificationWorkerTest extends TestCase
             'user_id' => $user->id,
             'channel' => 'telegram',
             'message' => 'Send me updates',
-            'payload' => ['chat_id' => '1'],
+            'payload' => 'chat_id=1',
             'status' => 'processing',
         ]);
 
         NotificationDelivery::query()->create([
             'notification_id' => $notification->id,
             'channel' => 'telegram',
-            'payload' => ['chat_id' => '1'],
+            'payload' => 'chat_id=1',
             'status' => 'queued',
             'available_at' => now(),
         ]);

@@ -23,7 +23,6 @@ class NotificationDelivery extends Model
     protected function casts(): array
     {
         return [
-            'payload' => 'array',
             'available_at' => 'datetime',
             'reserved_at' => 'datetime',
             'sent_at' => 'datetime',

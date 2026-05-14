@@ -21,7 +21,6 @@ class Notification extends Model
     protected function casts(): array
     {
         return [
-            'payload' => 'array',
             'sent_at' => 'datetime',
         ];
     }

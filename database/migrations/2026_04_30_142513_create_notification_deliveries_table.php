@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('notification_id')->constrained()->cascadeOnDelete();
             $table->string('channel', 32);
-            $table->json('payload');
+            $table->text('payload')->nullable();
             $table->string('status', 32)->default('queued');
             $table->unsignedTinyInteger('attempts')->default(0);
             $table->unsignedTinyInteger('max_attempts')->default(3);

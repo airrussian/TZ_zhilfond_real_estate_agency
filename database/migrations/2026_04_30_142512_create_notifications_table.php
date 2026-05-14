@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->string('channel', 32);
             $table->string('message', 500);
-            $table->json('payload');
+            $table->text('payload')->nullable();
             $table->string('status', 32)->default('processing');
             $table->timestamp('sent_at')->nullable();
             $table->text('error_message')->nullable();

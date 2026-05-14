@@ -20,7 +20,7 @@ class NotificationController extends Controller
             'user_id' => $validated['user_id'],
             'channel' => $validated['channel'],
             'message' => $validated['message'],
-            'payload' => $validated['payload'] ?? [],
+            'payload' => $validated['payload'] ?? null,
             'status' => 'processing',
         ]);
 

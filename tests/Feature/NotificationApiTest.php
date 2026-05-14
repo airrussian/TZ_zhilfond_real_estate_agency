@@ -18,7 +18,7 @@ class NotificationApiTest extends TestCase
             'user_id' => $user->id,
             'channel' => 'email',
             'message' => 'Test notification',
-            'payload' => ['subject' => 'Hello'],
+            'payload' => 'Текст полезной нагрузки',
         ]);
 
         $response

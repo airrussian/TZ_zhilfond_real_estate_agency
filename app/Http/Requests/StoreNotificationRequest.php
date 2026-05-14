@@ -23,7 +23,7 @@ class StoreNotificationRequest extends FormRequest
             'user_id' => ['required', 'integer', 'exists:users,id'],
             'channel' => ['required', 'string', 'in:email,telegram'],
             'message' => ['required', 'string', 'max:500'],
-            'payload' => ['nullable', 'array'],
+            'payload' => ['nullable', 'string'],
         ];
     }
 }
