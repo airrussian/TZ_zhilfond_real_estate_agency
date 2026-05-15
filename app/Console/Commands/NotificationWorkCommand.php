@@ -40,10 +40,9 @@ class NotificationWorkCommand extends Command
     }
 
     private function processNext(): bool
-    {
-        /** @var int|null $deliveryId */
+    {        
         $deliveryId = DB::transaction(function () {
-            /** @var NotificationDelivery|null $delivery */
+
             $delivery = NotificationDelivery::query()
                 ->where('status', 'queued')
                 ->where('available_at', '<=', now())
