@@ -2,9 +2,9 @@
 
 namespace App\Services;
 
-use App\Models\Notification;
 use Carbon\CarbonInterface;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\DB;
 
 final class UserNotificationReportGenerator
 {
@@ -20,7 +20,7 @@ final class UserNotificationReportGenerator
         $start = Carbon::parse($dateFrom)->startOfDay();
         $end = Carbon::parse($dateTo)->endOfDay();
 
-        $rows = Notification::query()
+        $rows = DB::table('notifications')
             ->where('user_id', $userId)
             ->whereBetween('created_at', [$start, $end])
             ->selectRaw('channel, COUNT(*) as total, SUM(CASE WHEN status = ? THEN 1 ELSE 0 END) as errors', ['error'])
@@ -29,7 +29,8 @@ final class UserNotificationReportGenerator
 
         $byChannel = [];
         foreach ($rows as $row) {
-            $byChannel[(string) $row->channel] = [
+            /** @var object{channel: string, total: int|string, errors: int|string} $row */
+            $byChannel[$row->channel] = [
                 'total' => (int) $row->total,
                 'errors' => (int) $row->errors,
             ];

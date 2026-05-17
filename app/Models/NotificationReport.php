@@ -4,7 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Support\Carbon;
 
+/**
+ * @property int $id
+ * @property int $user_id
+ * @property Carbon $date_from
+ * @property Carbon $date_to
+ * @property string $status
+ * @property string|null $output_path
+ * @property string|null $error_message
+ */
 class NotificationReport extends Model
 {
     public const STATUS_PENDING = 'pending';
