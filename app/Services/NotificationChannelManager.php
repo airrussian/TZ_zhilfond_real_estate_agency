@@ -8,7 +8,7 @@ use App\Services\NotificationChannels\TelegramNotificationChannel;
 use InvalidArgumentException;
 
 /**
- * Класс-менеджер для разрешения и получения экземпляра соответствующего 
+ * Класс-менеджер для разрешения и получения экземпляра соответствующего
  * канала уведомлений (например, email, telegram) по строковому идентификатору.
  */
 class NotificationChannelManager
@@ -32,8 +32,9 @@ class NotificationChannelManager
     /**
      * Получает экземпляр канала уведомлений по строковому идентификатору.
      *
-     * @param string $channel Идентификатор канала уведомлений.
+     * @param  string  $channel  Идентификатор канала уведомлений.
      * @return NotificationChannel Экземпляр канала уведомлений.
+     *
      * @throws InvalidArgumentException Если канал не поддерживается.
      */
     public function resolve(string $channel): NotificationChannel

@@ -40,7 +40,7 @@ class NotificationWorkCommand extends Command
     }
 
     private function processNext(): bool
-    {        
+    {
         $deliveryId = DB::transaction(function () {
 
             $delivery = NotificationDelivery::query()
